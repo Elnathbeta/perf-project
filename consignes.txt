@@ -1,0 +1,52 @@
+Workload generator:
+	Cliff
+	Jmeter
+	httpperf
+	ab
+	gatling
+
+Web server:
+	Apache
+	Njinx (nchacha pour les intimes)
+
+On peut comparer des frameworks web
+	django
+	
+Bases de données nosql:
+	Cassandra
+	Hbase
+	Redis
+	
+Messaging
+	Kafka
+	ZeroMQ
+	Rabbit
+	
+Virtualisation
+	Docker
+	Virtualbox
+	Application native
+
+Parallelisation
+	- Séquentiel
+	OpenMP
+	MPI
+	pthreads
+
+algorithmes de traitement d'images, collection, classes
+
+Langages
+	python
+	go
+	C
+
+
+
+======= Comment comparer
+System measure = vrai système
+System model = modeliser avec JMT
+
+
+======= Optimisation
+Comparer V1 avec V2-optimisée
+

@@ -32,7 +32,7 @@ sequential: $(OutputDir)
 cleansequential:
 	rm -f $(OutputDir)/sequential
 
-testsequential:
+testsequential: sequential
 	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential $(XValue) 10
 	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential $(XValue) 100
 	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential $(XValue) 1000
@@ -45,5 +45,5 @@ mpi: $(OutputDir)
 cleanmpi:
 	rm -f $(OutputDir)/mpi
 
-testmpi:
+testmpi: mpi
 	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 4 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10

@@ -1,14 +1,14 @@
 all: compile test
-compile: sequential mpi
-clean: cleantest cleansequential cleanmpi
-test: testsequential testmpi
+compile: sequential mpi sequential_dynamic
+clean: cleantest cleansequential cleanmpi cleansequential_dynamic
+test: testsequential testmpi testsequential_dynamic
 
 # In which directory should the executables go
 OutputDir = bin
 # Where to put the result of the tests
 TestOutput = $(OutputDir)/test.log
 # Value used to test. We will compute exp(XValue) for every implementation
-XValue = 20
+XValue = 3
 # MPI file with the name of the machines to use
 MpiMachinesFile = mpi_machines.txt
 
@@ -47,3 +47,19 @@ cleanmpi:
 
 testmpi: mpi
 	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 4 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10
+
+sequential_dynamic: $(OutputDir)
+	$(CC) -o $(OutputDir)/sequential_dynamic -lm $(CCFLAGS) sequential_dynamic.c
+
+cleansequential_dynamic:
+	rm -f $(OutputDir)/sequential_dynamic
+
+testsequential_dynamic: sequential_dynamic
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 100000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 1000000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 10000000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/sequential_dynamic $(XValue) 100000000

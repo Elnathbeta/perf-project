@@ -1,0 +1,1 @@
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 300000, 100.52185163497924

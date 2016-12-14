@@ -1,0 +1,38 @@
+bin/sequential 3 10, 0.0007682561874389649
+bin/sequential 3 100, 0.0007873296737670899
+bin/sequential 3 1000, 0.0033856630325317383
+bin/sequential 3 10000, 0.2538719654083252
+bin/sequential 3 100000, 24.33430919647217
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 10, 0.008347868919372559
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 100, 0.007841944694519043
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 1000, 0.00985877513885498
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 10000, 0.20018141269683837
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 100000, 18.302562952041626
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 10, 0.010443520545959473
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 100, 0.010157489776611328
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 1000, 0.010593008995056153
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 10000, 0.14179604053497313
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 100000, 11.211517596244812
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 10, 0.03776171207427979
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 100, 0.04046034812927246
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 1000, 0.033161258697509764
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 10000, 0.11685318946838379
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 100000, 8.851768589019775
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 10, 0.2501212596893311
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 100, 0.26881325244903564
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 1000, 0.2610985279083252
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 10000, 0.3510164499282837
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 100000, 9.81385600566864
+mpiexec -n 32 -f mpi_machines.txt bin/mpi 3 10, 0.48524749279022217
+mpiexec -n 32 -f mpi_machines.txt bin/mpi 3 100, 0.4881446361541748
+mpiexec -n 32 -f mpi_machines.txt bin/mpi 3 1000, 0.47471013069152834
+mpiexec -n 32 -f mpi_machines.txt bin/mpi 3 10000, 0.5615640163421631
+mpiexec -n 32 -f mpi_machines.txt bin/mpi 3 100000, 9.749518322944642
+bin/sequential_dynamic 3 10, 0.0007913351058959961
+bin/sequential_dynamic 3 100, 0.0008131265640258789
+bin/sequential_dynamic 3 1000, 0.0008224248886108398
+bin/sequential_dynamic 3 10000, 0.0009408473968505859
+bin/sequential_dynamic 3 100000, 0.0018073320388793945
+bin/sequential_dynamic 3 1000000, 0.010453414916992188
+bin/sequential_dynamic 3 10000000, 0.09466385841369629
+bin/sequential_dynamic 3 100000000, 0.9250608444213867

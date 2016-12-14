@@ -44,7 +44,7 @@ int main(int argc, char** argv)
 		end += (ITERATIONS % totProc);
 	}
 	
-	printf("Process %d: computing terms %d to %d\n", curProc, start, end);
+	//printf("Process %d: computing terms %d to %d\n", curProc, start, end);
 	
 	long double result = 0;
 	for(int i = start; i <= end; ++i)

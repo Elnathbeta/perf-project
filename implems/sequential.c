@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	const double X = atof(argv[1]);
 	const int ITERATIONS = atol(argv[2]);
 	
-	printf("Computing exp(%lf) with %d iterations...\n", X, ITERATIONS);
+	//printf("Computing exp(%lf) with %d iterations...\n", X, ITERATIONS);
 	
 	long double result = 0;
 	for(int i = 0; i < ITERATIONS; ++i)

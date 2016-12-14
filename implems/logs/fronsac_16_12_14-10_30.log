@@ -1,0 +1,33 @@
+bin/sequential 3 10, 0.0010777950286865235
+bin/sequential 3 100, 0.0008034944534301758
+bin/sequential 3 1000, 0.0033852815628051757
+bin/sequential 3 10000, 0.25288710594177244
+bin/sequential 3 100000, 24.39586365222931
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 10, 0.08338444232940674
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 100, 0.007937288284301758
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 1000, 0.01007699966430664
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 10000, 0.19807829856872558
+mpiexec -n 2 -f mpi_machines.txt bin/mpi 3 100000, 18.385708045959472
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 10, 0.009940910339355468
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 100, 0.009426331520080567
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 1000, 0.01057882308959961
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 10000, 0.1394756555557251
+mpiexec -n 4 -f mpi_machines.txt bin/mpi 3 100000, 11.209449315071106
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 10, 0.0402724027633667
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 100, 0.03034319877624512
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 1000, 0.03729968070983887
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 10000, 0.12387614250183106
+mpiexec -n 8 -f mpi_machines.txt bin/mpi 3 100000, 8.722094821929932
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 10, 0.2794070243835449
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 100, 0.28466904163360596
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 1000, 0.26619088649749756
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 10000, 0.3831587314605713
+mpiexec -n 16 -f mpi_machines.txt bin/mpi 3 100000, 9.39312777519226
+bin/sequential_dynamic 3 10, 0.00080413818359375
+bin/sequential_dynamic 3 100, 0.0008167505264282226
+bin/sequential_dynamic 3 1000, 0.0008166790008544922
+bin/sequential_dynamic 3 10000, 0.0009122610092163086
+bin/sequential_dynamic 3 100000, 0.001860356330871582
+bin/sequential_dynamic 3 1000000, 0.010268855094909667
+bin/sequential_dynamic 3 10000000, 0.09371483325958252
+bin/sequential_dynamic 3 100000000, 0.9247796058654785

@@ -46,7 +46,26 @@ cleanmpi:
 	rm -f $(OutputDir)/mpi
 
 testmpi: mpi
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 2 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 2 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 2 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 2 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 2 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100000
 	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 4 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 4 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 4 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 4 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 4 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 8 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 8 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 8 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 8 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 8 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100000
 
 sequential_dynamic: $(OutputDir)
 	$(CC) -o $(OutputDir)/sequential_dynamic -lm $(CCFLAGS) sequential_dynamic.c

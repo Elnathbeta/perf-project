@@ -1,52 +1,42 @@
-Workload generator:
-	Cliff
-	Jmeter
-	httpperf
-	ab
-	gatling
-
-Web server:
-	Apache
-	Njinx (nchacha pour les intimes)
-
-On peut comparer des frameworks web
-	django
+Objectif:
+	Calculer exp(x) avec la transformation en serie sur une machine avec plusieurs implementations/technologies.
 	
-Bases de données nosql:
-	Cassandra
-	Hbase
-	Redis
-	
-Messaging
-	Kafka
-	ZeroMQ
-	Rabbit
-	
-Virtualisation
-	Docker
-	Virtualbox
-	Application native
+	Mesurer la vitesse d'un même algorithme selon l'implementation
 
-Parallelisation
-	- Séquentiel
-	OpenMP
-	MPI
-	pthreads
+Metriques:
+	Temps
+	Tous les algorithmes sont verifiés pour donner le même résultat avec les mêmes paramètres
 
-algorithmes de traitement d'images, collection, classes
-
-Langages
-	python
-	go
-	C
+Paramètres de l'algorithme:
+	Nombre dont on calcule l'exponentiel (x).
+	Nombre d'itérations de la suite (n).
+	MPI:
+		Nombre de processus.
+		Nombre de machines (pour le moment toujours 1).
+	OpenMP:
+		Nombre de threads.
+		
+Machine utilisée:
+	Boardeau - Fronsac
+		64 bits
+		Intel(R) Xeon(R) CPU E3-1240 v3 @ 3.40GHz
+		Socket(s):				1
+		Core(s) per socket:		4
+		Thread(s) per core:		2
+		CPU(s):					8
+		Ubuntu 16.04/LTS
+		Utilisateurs:			1
 
 
+Paramètres qui peuvent affecter la performance:
+	Nombre de coeurs ou cpus par rapport au nombre de processus ou threads pour les implémentations parallèles.
+	Paramètres de l'algorithme
 
-======= Comment comparer
-System measure = vrai système
-System model = modeliser avec JMT
+Parametres que l'on fait varier:
+	n
+	nombre de processus/threads
 
-
-======= Optimisation
-Comparer V1 avec V2-optimisée
-
+Technique d'évaluation:
+	Script python
+		average of end time - start time
+	Speedup

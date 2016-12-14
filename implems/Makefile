@@ -14,8 +14,8 @@ MpiMachinesFile = mpi_machines.txt
 
 CC = gcc
 CCFLAGS = -std=c11 -Wall
-TIME = /usr/bin/time
-TIMEFLAGS = -o $(TestOutput) --append --format "%C, %S, %U"
+TIME = ./timeMeasure.py
+TIMEFLAGS = $(TestOutput)
 MPICC = mpicc
 MPICCFLAGS = $(CCFLAGS)
 MPIEXEC = mpiexec

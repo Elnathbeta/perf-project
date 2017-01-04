@@ -1,7 +1,7 @@
 all: compile test
-compile: sequential mpi sequential_dynamic
-clean: cleantest cleansequential cleanmpi cleansequential_dynamic
-test: testsequential testmpi testsequential_dynamic
+compile: sequential mpi sequential_dynamic omp
+clean: cleantest cleansequential cleanmpi cleansequential_dynamic cleanomp
+test: testsequential testmpi testsequential_dynamic testomp
 
 # In which directory should the executables go
 OutputDir = bin
@@ -66,6 +66,39 @@ testmpi: mpi
 	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 1000
 	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 10000
 	$(TIME) $(TIMEFLAGS) $(MPIEXEC) -n 16 -f $(MpiMachinesFile) $(OutputDir)/mpi $(XValue) 100000
+
+omp: $(OutputDir)
+	$(CC) -o $(OutputDir)/omp -lm $(CCFLAGS) -fopenmp omp.c
+
+cleanomp:
+	rm -f $(OutputDir)/omp
+
+testomp: omp
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 2 $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 2 $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 2 $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 2 $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 2 $(XValue) 100000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 4 $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 4 $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 4 $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 4 $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 4 $(XValue) 100000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 8 $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 8 $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 8 $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 8 $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 8 $(XValue) 100000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 16 $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 16 $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 16 $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 16 $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 16 $(XValue) 100000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 32 $(XValue) 10
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 32 $(XValue) 100
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 32 $(XValue) 1000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 32 $(XValue) 10000
+	$(TIME) $(TIMEFLAGS) $(OutputDir)/omp 32 $(XValue) 100000
 
 sequential_dynamic: $(OutputDir)
 	$(CC) -o $(OutputDir)/sequential_dynamic -lm $(CCFLAGS) sequential_dynamic.c
